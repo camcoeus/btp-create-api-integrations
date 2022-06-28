@@ -1,0 +1,28 @@
+# Default values for cap-invoice-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: martinfrick/cap-invoice-service
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+vcapsecret:
+  name: invoice-vcap-services
+
+nameOverride: "cap-invoice-service"
+fullnameOverride: "cap-invoice-service"
+
+service:
+  port: 4004
+  targetPort: 4004
+
+cc:
+  proxyhost: ""
+  proxyport: 20003
+
+mockhost: "http://order-mock.cap.svc.cluster.local:80"
+alertnotifsrv: "http://alert-notif.cap.svc.cluster.local"

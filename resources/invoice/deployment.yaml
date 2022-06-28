@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cap-invoice-service 
+  labels:
+    app: cap-invoice-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cap-invoice-service
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: cap-invoice-service  
+    spec:     # pod spec                  
+      containers: 
+      - image: martinfrick/cap-invoice-service:latest # image we pushed
+        name: cap-invoice-service 
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 4004
+        envFrom:
+          - secretRef:
+              name: invoice-vcap-services
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cap-invoice-service
+  labels:
+    app: cap-invoice-service
+spec:
+  ports:
+  - name: http
+    port: 4004
+    targetPort: 4004
+  selector:
+    app: cap-invoice-service
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: cap-invoice-service
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+  - accessStrategies:
+    - config: {}
+      handler: noop
+    methods:
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    - HEAD
+    path: /.*
+  service:
+    host: cap-invoice-service
+    name: cap-invoice-service
+    port: 4004

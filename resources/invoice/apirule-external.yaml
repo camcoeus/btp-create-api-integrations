@@ -1,0 +1,30 @@
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: cap-invoice-service
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+  - accessStrategies:
+    - config: {}
+      handler: noop
+    methods:
+    - GET
+    - PUT
+    - PATCH
+    - DELETE
+    - HEAD
+    - POST
+    path: /invoice/.*
+  - accessStrategies:
+    - config:
+        required_scope:
+        - createinvoices
+      handler: oauth2_introspection
+    methods:
+    - POST
+    path: /external/.*
+  service:
+    host: cap-invoice-service
+    name: cap-invoice-service
+    port: 4004

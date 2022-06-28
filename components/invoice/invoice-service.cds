@@ -1,0 +1,4 @@
+
+service ExternalService {
+  action createinvoices();
+}

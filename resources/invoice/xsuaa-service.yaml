@@ -1,0 +1,30 @@
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceInstance
+metadata:
+  name: cap-invoice-xsuaa-instance
+spec:
+  serviceOfferingName: xsuaa
+  servicePlanName: application
+  parameters:
+    xsappname: cap-invoice-kyma
+    tenant-mode: dedicated
+    scopes:
+      - name: $XSAPPNAME.Admin
+        description: Admin
+    role-templates:
+      - name: Admin
+        description: cap-invoice-kyma
+        scope-references:
+          - $XSAPPNAME.Admin
+    role-collections:
+      - name: cap-invoice-kyma-rc
+        description: Kyma Cap Sample
+        role-template-references:
+          - $XSAPPNAME.Admin
+---
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceBinding
+metadata:
+  name: cap-invoice-xsuaa-binding
+spec:
+  serviceInstanceName: cap-invoice-xsuaa-instance

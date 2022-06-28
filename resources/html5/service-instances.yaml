@@ -1,0 +1,32 @@
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceInstance
+metadata:
+  name: cap-orders-app-host-instance
+spec:
+  serviceOfferingName: html5-apps-repo
+  servicePlanName: app-host
+---
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceBinding
+metadata:
+  name: cap-orders-app-host-binding
+spec:
+  serviceInstanceName: cap-orders-app-host-instance
+---
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceInstance
+metadata:
+  name: cap-orders-destination-instance
+spec:
+  serviceOfferingName: destination
+  servicePlanName: lite
+  parameters:
+    HTML5Runtime_enabled: true
+    version: "1.0.0"
+---
+apiVersion: services.cloud.sap.com/v1
+kind: ServiceBinding
+metadata:
+  name: cap-orders-destination-binding
+spec:
+  serviceInstanceName: cap-orders-destination-instance
