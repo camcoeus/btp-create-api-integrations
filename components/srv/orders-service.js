@@ -11,7 +11,7 @@ async function getExternalOrder(body) {
     headers: {
       "Content-Type": "application/json",
     },
-  }; 
+  };
   if (CC_PROXY_HOST && CC_PROXY_PORT) {
     console.log("getExternalOrder: using proxy - ", process.env.CC_PROXY_HOST);
     config = {
@@ -68,5 +68,13 @@ module.exports = cds.service.impl(async function () {
       }
       res.status(500).send("an error occurred...");
     }
+  });
+
+  this.on("READ", "developer", async function (req) {
+    console.log("enter dev");
+    const apim = await cds.connect.to("developers");
+    console.log("connected to apim");
+    const developerList = await apim.send('GET', 'Developers');
+    console.log(developerList);  
   });
 });

@@ -1,20 +1,26 @@
 {
-    "[development]": {
-        "auth": {
-            "passport": {
-                "strategy": "mock",
-                "users": {
-                    "kyma@cap.sap.com": {
-                        "password": "initial",
-                        "ID": "kyma@cap.sap.com",
-                        "userAttributes": {
-                            "email": "kyma@cap.sap.com"
-                        },
-                        "roles": [
-                            "User"
-                        ]
-                    }
-                }
+    "requires": {
+        "uaa": {
+            "kind": "xsuaa"
+        },
+        "developers": {
+            "kind": "odata",
+            "credentials": {
+                "destination": "apim",
+                "path": "/apiportal/api/1.0/Management.svc",
+                "forwardAuthToken": true,
+                "requestTimeout": 1000000
+            },
+            "destinationOptions": {
+                "selectionStrategy": "alwaysProvider"
+            }
+        },
+        "monetize": {
+            "kind": "rest",
+            "credentials": {
+                "destination": "apim",
+                "path": "/api/1.0/apimgmt/monetize/bills",
+                "requestTimeout": 1000000
             }
         }
     }

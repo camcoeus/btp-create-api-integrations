@@ -1,0 +1,24 @@
+{
+  "xsappname": "stripeApp",
+  "tenant-mode": "dedicated",
+  "scopes": [{
+    "name": "$XSAPPNAME.User",
+    "description": "User"
+  }],
+  "attributes": [],
+  "role-templates": [{
+    "name": "User",
+    "description": "generated",
+    "scope-references": [
+      "$XSAPPNAME.User"
+    ],
+    "attribute-references": []
+  }],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://localhost/",
+      "http://localhost:5001/",
+      "https://*.cfapps.*.hana.ondemand.com/**"
+    ]
+  }
+}
