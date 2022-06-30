@@ -3,6 +3,9 @@
         "uaa": {
             "kind": "xsuaa"
         },
+        "apim": {
+            "kind": "destination"
+        },
         "developers": {
             "kind": "odata",
             "credentials": {
@@ -19,7 +22,7 @@
             "kind": "rest",
             "credentials": {
                 "destination": "apim",
-                "path": "/api/1.0/apimgmt/monetize/bills",
+                "path": "/api/1.0/apimgmt/monetize",
                 "requestTimeout": 1000000
             }
         }
