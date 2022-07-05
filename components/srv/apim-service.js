@@ -16,11 +16,13 @@ module.exports = cds.service.impl(async function () {
         console.log("enter bill");
         const apimBill = await cds.connect.to("monetize");
         console.log("connected to apimBill");
-        //TODO make month year and developer_id dynamic
-        const billList = await apimBill.send(
+        let billList;
+        //TODO make month year dynamic
+        (req.params && req.params[0]) ?
+        billList = await apimBill.send(
           "GET",
-          "bills?month=06&year=2022&developer_id=martin.frick@sap.com"
-        );
+          `bills?month=06&year=2022&developer_id=${req.params[0].developerId}`
+        ) : billList = [{}];
         console.log(billList);
         //TODO cover multiple applications
         const bills = billList.reduce((acc, curVal) => {
