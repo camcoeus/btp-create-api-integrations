@@ -1,19 +1,34 @@
 {
   "xsappname": "stripeApp",
   "tenant-mode": "dedicated",
-  "scopes": [{
-    "name": "$XSAPPNAME.User",
-    "description": "User"
-  }],
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "User"
+    },
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
   "attributes": [],
-  "role-templates": [{
-    "name": "User",
-    "description": "generated",
-    "scope-references": [
-      "$XSAPPNAME.User"
-    ],
-    "attribute-references": []
-  }],
+  "role-templates": [
+    {
+      "name": "User",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    }
+  ],
   "oauth2-configuration": {
     "redirect-uris": [
       "https://localhost/",
