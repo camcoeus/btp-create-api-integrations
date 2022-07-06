@@ -25,7 +25,7 @@ module.exports = cds.service.impl(async function () {
         ))
       : (billList = []);
     //TODO test multiple applications
-    if (billList.apps) {
+    if (billList[0].apps) {
     const apps = billList[0].apps;
     let appLineItems = apps
       .map((app) => {
