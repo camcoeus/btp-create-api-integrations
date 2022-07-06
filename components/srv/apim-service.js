@@ -23,8 +23,9 @@ module.exports = cds.service.impl(async function () {
           "GET",
           `bills?month=${params.month}&year=${params.year}&developer_id=${params.developer_id}`
         ))
-      : (billList = [{}]);
+      : (billList = []);
     //TODO test multiple applications
+    if (billList.apps) {
     const apps = billList[0].apps;
     let appLineItems = apps
       .map((app) => {
@@ -50,5 +51,6 @@ module.exports = cds.service.impl(async function () {
       .flat();
     console.log(appLineItems);
     return appLineItems;
+    } else return []
   });
 });
