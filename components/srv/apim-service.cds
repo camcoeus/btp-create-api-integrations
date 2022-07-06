@@ -8,11 +8,14 @@ service ApimService {
     }
 
     entity bill {
-        key developerId  : String;
+            developerId  : String;
             startDate    : String;
             endDate      : String;
-            billValue    : Decimal;
             appName      : String;
-            appBillValue : Decimal;
+            appId        : String;
+            productName  : String;
+            ratePlanName : String;
+            billValue    : Decimal;
+            calls        : Decimal;
     }
 }
