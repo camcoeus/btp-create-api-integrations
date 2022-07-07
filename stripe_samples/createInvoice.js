@@ -2,7 +2,6 @@ require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 (async () => {
-  // Create an Invoice Item with the Price, and Customer you want to charge
   const invoiceItem1 = await stripe.invoiceItems.create({
     customer: "cus_M13RWfUqpJ1QOo",
     amount: 1008,
@@ -15,7 +14,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
         appName: "KymaCAPExternal_Bestrun",
         productName: "KymaCapExternal",
         ratePlanName: "KymaCAPExternal_Basic",
-        calls: 8
+        calls: "8"
     },
     description: "API calls to KymaCapExternal product in KymaCAPExternal_Bestrun application (8)"
   });
@@ -32,7 +31,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
         appName: "KymaCAP_Bestrun",
         productName: "KymaCap",
         ratePlanName: "KymaCAP_TierGold",
-        calls: 15
+        calls: "15"
     },
     description: "API calls to KymaCap product in KymaCAP_Bestrun application (15)"
   });
