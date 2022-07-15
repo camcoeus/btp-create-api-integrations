@@ -28,6 +28,6 @@ module.exports = async function stripeService(){
     })
 
     this.on('createInvoice', async req => {
-        
+        console.log(req.data);
     })
 }
