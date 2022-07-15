@@ -1,6 +1,6 @@
 const cds = require("@sap/cds");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-//const stripe = require('stripe')('<storage key here for local testing>');
+//const stripe = require('stripe')('<secret key here for local testing>');
 
 module.exports = async function stripeService(){
     //const srv = await cds.connect.to('stripeService');
