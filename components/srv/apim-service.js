@@ -28,7 +28,7 @@ module.exports = cds.service.impl(async function () {
     if (billList[0].apps) {
     const apps = billList[0].apps;
     let appLineItems = apps
-      .map((app) => {
+      .flatMap((app) => {
         let productLineItems = app.ratePlanSubscribed.flat();
         let pLI = productLineItems.reduce((acc, curVal) => {
           return [
@@ -47,8 +47,7 @@ module.exports = cds.service.impl(async function () {
           ];
         }, []);
         return pLI;
-      })
-      .flat();
+      });
     console.log(appLineItems);
     return appLineItems;
     } else return []
