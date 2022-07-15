@@ -26,4 +26,8 @@ module.exports = async function stripeService(){
           : newCustomer.id = customerId;
           return newCustomer.id;
     })
+
+    this.on('createInvoice', async req => {
+        
+    })
 }
