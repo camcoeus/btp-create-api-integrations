@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+jet-logger.log
+documents/
+dist/
+src/init/env/development.env
