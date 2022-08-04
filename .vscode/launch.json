@@ -21,6 +21,15 @@
                 "${workspaceFolder}/**",
                 "!**/node_modules/**"
             ],
+        },
+        {
+            "command": "npm run --prefix ./btp-invoicing-cap watch",
+            "name": "cds-ts watch",
+            "request": "launch",
+            "type": "node-terminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }

@@ -17,3 +17,7 @@ spec:
             envFrom:
               - secretRef:
                   name: cron-config-secret
+          volumes:
+          - name: dest-kay
+            secret:
+              secretName: hanaBind1

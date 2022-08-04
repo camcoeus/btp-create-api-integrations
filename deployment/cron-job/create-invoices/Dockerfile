@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # Copy source and service
-COPY cron/create-invoices ./
+COPY cron-job/create-invoices ./
 # Install app dependencies
 RUN npm install
 EXPOSE 3000

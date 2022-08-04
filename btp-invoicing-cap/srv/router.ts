@@ -17,7 +17,7 @@ class InvoicingService extends ApplicationService {
         this.on("hello", (req: Request) => this.hello(req));
     }
 
-    async hello(req: Request) {
+    hello(req: Request) {
         /*const apiportalService: any = await cds.connect.to('apiportal')
         const { Bills } = apiportalService.entities;
         console.log("TEST", apiportalService)
