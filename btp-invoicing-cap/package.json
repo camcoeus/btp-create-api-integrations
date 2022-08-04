@@ -85,11 +85,7 @@
         "credentials": {
           "destination": "apim",
           "path": "/apiportal/api/1.0/Management.svc",
-          "forwardAuthToken": true,
           "requestTimeout": 1000000
-        },
-        "destinationOptions": {
-          "selectionStrategy": "alwaysProvider"
         }
       }
     }

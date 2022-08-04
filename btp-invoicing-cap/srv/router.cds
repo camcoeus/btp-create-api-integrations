@@ -4,6 +4,6 @@
 service InvoicingService {
 
     //entity Bills as projection on apiportalService.Bills;
-    function hello()          returns {};
+    function hello()          returns String ;
     action   createInvoices() returns {};
 }

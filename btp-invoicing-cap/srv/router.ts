@@ -8,8 +8,9 @@ class InvoicingService extends ApplicationService {
         this.on('hello', async (req : Request) => {
             const apiportalService: any = await cds.connect.to('apiportal');
             const { Bills } = apiportalService.entities;
-            let res = apiportalService.run(SELECT.from(Bills).limit(1));
-            return req.reply({ res })
+            let res = await apiportalService.run(SELECT.from(Bills).limit(1));
+            return req.reply (res)
+
         });
 
         /*async hello() {
