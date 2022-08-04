@@ -1,0 +1,7 @@
+{
+  "APIPortal_Developer_CF": {
+    "directoryName": "apiportal-service",
+    "servicePath": "apiportal/api/1.0/Management.svc",
+    "npmPackageName": "apiportal-service"
+  }
+}
