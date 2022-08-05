@@ -5,26 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-node",
+            "command": "cd btp-invoicing && cds-ts watch",
+            "name": "BTP Invoicing: cds-ts watch --dev",
             "request": "launch",
-            "name": "Debug Dev Env",
-            "runtimeArgs": [
-                "-r",
-                "ts-node/register",
-                "-r",
-                "tsconfig-paths/register",
-            ],
-            "args": [
-                "${workspaceFolder}/btp-invoicing/src/index.ts"
-            ],
-            "resolveSourceMapLocations": [
-                "${workspaceFolder}/**",
-                "!**/node_modules/**"
-            ],
+            "type": "node-terminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         },
         {
             "command": "npm run --prefix ./btp-invoicing-cap watch",
-            "name": "cds-ts watch",
+            "name": "BTP Invoicing: cds-ts watch --prod",
             "request": "launch",
             "type": "node-terminal",
             "skipFiles": [
