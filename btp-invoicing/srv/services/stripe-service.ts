@@ -54,7 +54,7 @@ export default class StripeService {
      * @returns true if invoice was sent, false if not
      */
     public createAndSendInvoice = async (bill: IBill, customer: Stripe.Customer): Promise<boolean> => {
-        if (!await this.invoiceExists(bill)) {
+        if (true || !await this.invoiceExists(bill)) {
             // Create all invoice items/positions from the bill
             for await (const position of bill.billDetails.apps) {
                 const appName: string = position.appName;

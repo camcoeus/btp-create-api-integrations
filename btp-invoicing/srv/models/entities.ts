@@ -21,7 +21,7 @@ export namespace InvoicingServiceTypes {
     }
 
     export enum FuncCreateInvoices {
-        name = "create"
+        name = "createStripeInvoices"
     }
 
     export type FuncCreateInvoicesReturn = IBills;

@@ -9,13 +9,13 @@ import Stripe from 'stripe';
 class InvoicingService extends ApplicationService {
 
     async init() {
-        this.on(InvoicingServiceTypes.FuncCreateInvoices.name, this.createInvoices)
+        this.on(InvoicingServiceTypes.FuncCreateInvoices.name, this.createStripeInvoices)
     }
 
-    private createInvoices = async (req: Request) => {
+    private createStripeInvoices = async (req: Request) => {
         try {
             const currentDate = new Date();
-            const month: string = String(currentDate.getMonth() + 1).padStart(2, '0'); //"07"
+            const month: string = String(currentDate.getMonth()).padStart(2, '0'); //"07"
             const year: string = String(currentDate.getFullYear()); //"2022"
 
             const bills: Array<IBill> = await billService.getBillableBills("07", year); //mocked month (july)
@@ -29,7 +29,7 @@ class InvoicingService extends ApplicationService {
             }
             let message;
             if (invoicesSent > 0) {
-                message = `${invoicesSent} ${invoicesSent == 1 ? "has" : "have"} been sent successfully to the ${invoicesSent == 1 ? "customer" : "customers"}`;
+                message = `${invoicesSent} ${invoicesSent == 1 ? "invoice has" : "invoices have"} been sent successfully to the ${invoicesSent == 1 ? "customer" : "customers"}`;
             }
             else {
                 message = "There was no valid or open bill to send to a customer";

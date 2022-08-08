@@ -2,8 +2,10 @@ Je/bqr0d7AMfH7T2PUWfMQ== templates/NOTES.txt
 Q51K9aoFVuzaWgS37tAhbw== templates/_deployment_helpers.tpl
 1ZiPkQHEVmeJF2UVk9fkZQ== templates/_helpers.tpl
 G6X/T4v1wGL44DXXM1jAqA== templates/_sapcp_helpers.tpl
-PuU2LvWHTPu3rbwiYvHzfg== values.yaml
+7P6S1fDOZCgykceaKtHDGQ== values.yaml
 2SvtJ1YBCkdfIQBZz8MHdg== Chart.yaml
+jyBv2q6Qxg2uuoFGPhpdFg== templates/xsuaa.yaml
+HVZTgFPAy6tipTjBXNg1oA== xs-security.json
 jyBv2q6Qxg2uuoFGPhpdFg== templates/destinations.yaml
 82ZpGjuACNpRmLa10mQHJg== charts/web-application/Chart.yaml
 feuHWfwJ/hGUIe6cT84zBw== charts/web-application/values-lint.yaml
