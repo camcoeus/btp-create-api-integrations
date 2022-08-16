@@ -54,7 +54,7 @@ export default class StripeService {
      * @returns true if invoice was sent, false if not
      */
     public createAndSendInvoice = async (bill: IBill, customer: Stripe.Customer): Promise<boolean> => {
-        if (true || !await this.invoiceExists(bill)) {
+        if (!await this.invoiceExists(bill)) {
             // Create all invoice items/positions from the bill
             for await (const position of bill.billDetails.apps) {
                 const appName: string = position.appName;
@@ -91,7 +91,13 @@ export default class StripeService {
                 description: bill.billId,
                 metadata: {
                     billId: bill.billId
-                }
+                },
+                custom_fields: [
+                    {
+                        name: "SAP Bill ID",
+                        value: bill.billId
+                    }
+                ]
             });
 
             // Send the Invoice

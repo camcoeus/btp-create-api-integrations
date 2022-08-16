@@ -25,6 +25,12 @@
     "build": "npm run build:cds && npm run cleanup:ts && npm run build:ts",
     "build:ts": "tsc",
     "build:cds": "cds build --production",
+    "pack": "pack build $npm_config_image_name --path gen/srv --buildpack gcr.io/paketo-buildpacks/nodejs --builder paketobuildpacks/builder:base",
+    "build:docker": "npm run build && npm run pack --image_name=$npm_config_image_name",
+    "push:docker": "docker push $npm_config_image_name",
+    "deploy:kyma": "helm upgrade --install btp-invoicing ../deployment/btp-invoicing/chart --namespace $npm_config_namespace",
+    "undeploy:kyma": "helm uninstall btp-invoicing ../deployment/btp-invoicing/chart --namespace $npm_config_namespace",
+    "build-deploy:kyma": "npm run build:docker --image_name=$npm_config_image_name && npm run push:docker --image_name=$npm_config_image_name && npm run deploy:kyma --namespace=$npm_config_namespace",
     "cleanup:ts": "npx rimraf gen/srv/srv/**/*.ts"
   },
   "build": {
@@ -69,6 +75,7 @@
   "cds": {
     "requires": {
       "auth": {
+        "restrict_all_services": false,
         "kind": "xsuaa"
       },
       "apiportal": {

@@ -30,6 +30,11 @@ spec:
             name: {{ $secretName }}
         {{- end }}
         env:
+        - name: STRIPE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: stripe-key
+              key: STRIPE_API_KEY
         {{- include "cap.web-application.env" . | indent 8 }}
         {{- range $k, $v := .Values.env }}
         - name: {{ $k }}

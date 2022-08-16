@@ -1,7 +1,7 @@
 global:
   domain: null
   #imagePullSecret:
-  #  name: null
+    #name: null
 srv:
   bindings:
     auth:

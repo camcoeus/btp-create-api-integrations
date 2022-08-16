@@ -14,7 +14,7 @@
             ]
         },
         {
-            "command": "npm run --prefix ./btp-invoicing-cap watch",
+            "command": "npm run --prefix ./btp-invoicing watch",
             "name": "BTP Invoicing: cds-ts watch --prod",
             "request": "launch",
             "type": "node-terminal",
