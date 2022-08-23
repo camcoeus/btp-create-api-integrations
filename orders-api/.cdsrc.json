@@ -6,6 +6,18 @@
         "apim": {
             "kind": "destination"
         },
+        "db": {
+            "model": [
+              "db",
+              "srv"
+            ],
+            "[production]": {
+              "kind": "hana-cloud"
+            },
+            "[development]": {
+              "kind": "sql"
+            }
+        },
         "developers": {
             "kind": "odata",
             "credentials": {
