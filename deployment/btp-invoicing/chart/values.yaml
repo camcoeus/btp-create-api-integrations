@@ -9,7 +9,7 @@ srv:
     destinations:
       serviceInstanceName: destinations
   image:
-    repository: kayschmitteckert/btp-invoicing
+    repository: martinfrick/btp-invoicing
     tag: latest
   resources:
     limits:

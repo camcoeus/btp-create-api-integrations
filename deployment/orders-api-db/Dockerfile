@@ -1,5 +1,5 @@
 # Use the capbuilder for the first stage build
-FROM martinfrick/capui5tools as capbuild
+FROM <<your_docker_account>>/capui5tools as capbuild
 #Base version
 ENV VERSION 1.0.0
 # Create app directory, in which the CAP service is built
@@ -7,7 +7,7 @@ WORKDIR /app
 # Set to production mode
 ENV NODE_ENV=production
 # Copy source
-COPY orders-cap .
+COPY orders-api .
 # build app
 RUN ["cds", "build"]
 # Switch to db build

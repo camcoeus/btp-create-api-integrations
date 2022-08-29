@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: martinfrick/cap-orders-service
+  repository: <<your_docker_account>>/cap-orders-service
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -23,6 +23,3 @@ service:
 cc:
   proxyhost: ""
   proxyport: 20003
-
-mockhost: "http://order-mock.cap.svc.cluster.local:80"
-alertnotifsrv: "http://alert-notif.cap.svc.cluster.local"

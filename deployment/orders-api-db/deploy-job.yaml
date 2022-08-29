@@ -15,7 +15,7 @@ spec:
     spec:
       restartPolicy: OnFailure
       containers:
-        - image: martinfrick/orders-db-deployer:latest
+        - image: <<your_docker_account>>/orders-db-deployer:latest
           imagePullPolicy: Always
           name: cap-db-deployer
           envFrom:

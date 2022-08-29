@@ -34,5 +34,3 @@ metadata:
 data:
   CC_PROXY_HOST: ""
   CC_PROXY_PORT: ""
-  MOCK_HOST: "http://order-mock.cap.svc.cluster.local:80"
-  ALERT_NOTIF_SRV: "http://alert-notif.cap.svc.cluster.local"
