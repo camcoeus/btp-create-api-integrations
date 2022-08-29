@@ -1,5 +1,5 @@
 {
-  "xsappname": "stripeApp",
+  "xsappname": "btp-invoicing",
   "tenant-mode": "dedicated",
   "scopes": [
     {
@@ -15,7 +15,7 @@
   "role-templates": [
     {
       "name": "User",
-      "description": "generated",
+      "description": "User",
       "scope-references": [
         "$XSAPPNAME.User"
       ],

@@ -19,6 +19,14 @@ spec:
             args:
             - curl $SERVICE_URL
             env:
+            - name: INVOICING_SERVICE_HOST
+              value: btp-invoicing-srv
+            - name: INVOICING_SERVICE_NAMESPACE
+              value: trial
+            - name: INVOICING_SERVICE_PATH
+              value: invoicing
+            - name: INVOICING_SERVICE_PORT
+              value: "8080"
             - name: SERVICE_URL
-              value: "$(INVOICING_SERVICE_HOST).$(INVOICING_SERVICE_NAMESPACE)/$(INVOICING_SERVICE_PATH)/createStripeInvoices()"
+              value: "$(INVOICING_SERVICE_HOST).$(INVOICING_SERVICE_NAMESPACE):$(INVOICING_SERVICE_PORT)/$(INVOICING_SERVICE_PATH)/createStripeInvoices()"
           restartPolicy: OnFailure
