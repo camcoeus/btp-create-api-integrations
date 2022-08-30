@@ -31,7 +31,7 @@
     "build:docker": "cross-var npm run build && npm run pack --image_name=$npm_config_image_name",
     "push:docker": "cross-var docker push $npm_config_image_name",
     "deploy:kyma": "cross-var helm upgrade --install btp-invoicing ./chart --namespace $npm_config_namespace",
-    "undeploy:kyma": "cross-var helm uninstall btp-invoicing ./chart --namespace $npm_config_namespace",
+    "undeploy:kyma": "cross-var helm uninstall btp-invoicing --namespace $npm_config_namespace",
     "build-deploy:kyma": "cross-var npm run build:docker --image_name=$npm_config_image_name && npm run push:docker --image_name=$npm_config_image_name && npm run deploy:kyma --namespace=$npm_config_namespace",
     "cleanup:ts": "npx rimraf gen/srv/srv/**/*.ts"
   },
