@@ -24,16 +24,16 @@
     "start:ts": "NODE_ENV=production cds-ts run",
     "watch": "NODE_ENV=production cds-ts watch",
     "build": "npm run build:cds && npm run cleanup:ts && npm run build:ts",
+    "cleanup:ts": "npx rimraf gen/srv/srv/**/*.ts",
     "build:ts": "tsc",
     "build:cds": "cds build --production",
+    "build:docker": "cross-var npm run build && npm run pack --image_name=$npm_config_image_name",
     "helm": "cds add helm",
     "pack": "cross-var pack build $npm_config_image_name --path gen/srv --buildpack gcr.io/paketo-buildpacks/nodejs --builder paketobuildpacks/builder:base",
-    "build:docker": "cross-var npm run build && npm run pack --image_name=$npm_config_image_name",
     "push:docker": "cross-var docker push $npm_config_image_name",
     "deploy:kyma": "cross-var helm upgrade --install btp-invoicing ./chart --namespace $npm_config_namespace",
     "undeploy:kyma": "cross-var helm uninstall btp-invoicing --namespace $npm_config_namespace",
-    "build-deploy:kyma": "cross-var npm run build:docker --image_name=$npm_config_image_name && npm run push:docker --image_name=$npm_config_image_name && npm run deploy:kyma --namespace=$npm_config_namespace",
-    "cleanup:ts": "npx rimraf gen/srv/srv/**/*.ts"
+    "build-deploy:kyma": "cross-var npm run build:docker --image_name=$npm_config_image_name && npm run push:docker --image_name=$npm_config_image_name && npm run deploy:kyma --namespace=$npm_config_namespace"
   },
   "build": {
     "target": "gen",

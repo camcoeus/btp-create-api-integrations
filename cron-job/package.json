@@ -5,12 +5,8 @@
   "repository": "<Add your repository here>",
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
-    "cross-var": "^1.1.0"
-  },
   "scripts": {
-    "deploy:kyma": "cross-var helm upgrade --install btp-invoicing-cron-job ./chart --namespace $npm_config_namespace",
-    "undeploy:kyma": "cross-var helm uninstall btp-invoicing-cron-job --namespace $npm_config_namespace"
+    "deploy:kyma": "npx cross-var helm upgrade --install btp-invoicing-cron-job ./chart --namespace $npm_config_namespace",
+    "undeploy:kyma": "npx cross-var helm uninstall btp-invoicing-cron-job --namespace $npm_config_namespace"
   }
 }
