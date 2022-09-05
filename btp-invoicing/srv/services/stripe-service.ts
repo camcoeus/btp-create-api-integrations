@@ -60,8 +60,7 @@ export default class StripeService {
                 const appName: string = position.appName;
                 const productName: string = position.ratePlanSubscribed[0][0].productName;
                 const ratePlanName: string = position.ratePlanSubscribed[0][0].productName;
-                const calls: number = position.ratePlanSubscribed[0][0].calls
-
+                const calls: number = position.ratePlanSubscribed[0][0].calls;
                 const start: number = moment(bill.fromDate).valueOf();
                 const end: number = moment(bill.toDate).valueOf()
 
@@ -79,7 +78,7 @@ export default class StripeService {
                         ratePlanName: ratePlanName,
                         calls: calls
                     },
-                    description: `API calls to ${productName} product in ${appName} application (${calls})`
+                    description: `Base price for ${productName} product in ${appName} application with ${calls} API calls`
                 });
             }
 
@@ -91,13 +90,7 @@ export default class StripeService {
                 description: bill.billId,
                 metadata: {
                     billId: bill.billId
-                },
-                custom_fields: [
-                    {
-                        name: "SAP Bill ID",
-                        value: bill.billId
-                    }
-                ]
+                }
             });
 
             // Send the Invoice

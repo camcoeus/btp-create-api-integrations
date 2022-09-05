@@ -15,10 +15,10 @@ class InvoicingService extends ApplicationService {
     private createStripeInvoices = async (req: Request) => {
         try {
             const currentDate = new Date();
-            const month: string = String(currentDate.getMonth()).padStart(2, '0'); //"07"
-            const year: string = String(currentDate.getFullYear()); //"2022"
+            const month: string = String(currentDate.getMonth()).padStart(2, '0'); // e.g., "07"
+            const year: string = String(currentDate.getFullYear()); // e.g., "2022"
 
-            const bills: Array<IBill> = await billService.getBillableBills("07", year); //mocked month (july)
+            const bills: Array<IBill> = await billService.getBillableBills(month, year);
             let invoicesSent = 0
             for await (const bill of bills) {
                 const customer: Stripe.Customer = await stripeService.getOrCreateCustomer(bill as unknown as IBill);
