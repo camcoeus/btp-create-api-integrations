@@ -84,7 +84,7 @@
         "kind": "odata-v2",
         "model": "srv/external/APIPortal_Developer_CF",
         "credentials": {
-          "destination": "apim",
+          "destination": "api-portal",
           "path": "/apiportal/api/1.0/Management.svc",
           "requestTimeout": 1000000
         }
