@@ -9,14 +9,15 @@ import Stripe from 'stripe';
 class InvoicingService extends ApplicationService {
 
     async init() {
-        this.on(InvoicingServiceTypes.FuncCreateInvoices.name, this.createStripeInvoices)
+        this.on(InvoicingServiceTypes.ActionCreateStripeInvoices.name, this.createStripeInvoices)
     }
 
     private createStripeInvoices = async (req: Request) => {
         try {
+            const params = req.data as InvoicingServiceTypes.IActionCreateStripeInvoicesParams;
             const currentDate = new Date();
-            const month: string = String(currentDate.getMonth()).padStart(2, '0'); // e.g., "07"
-            const year: string = String(currentDate.getFullYear()); // e.g., "2022"
+            const month = params.month || String(currentDate.getMonth()).padStart(2, '0'); // e.g., "07"
+            const year = params.year || String(currentDate.getFullYear()); // e.g., "2022"
 
             const bills: Array<IBill> = await billService.getBillableBills(month, year);
             let invoicesSent = 0

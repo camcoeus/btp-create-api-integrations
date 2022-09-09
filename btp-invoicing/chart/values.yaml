@@ -4,8 +4,6 @@ global:
     #name: null
 srv:
   bindings:
-    auth:
-      serviceInstanceName: xsuaa
     destinations:
       serviceInstanceName: destinations
   image:
@@ -25,12 +23,6 @@ srv:
       path: /
     readiness:
       path: /
-xsuaa:
-  serviceOfferingName: xsuaa
-  servicePlanName: application
-  parameters:
-    xsappname: btp-invoicing
-  config: xs-security.json
 destinations:
   serviceOfferingName: destination
   servicePlanName: lite

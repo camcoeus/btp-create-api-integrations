@@ -1,4 +1,5 @@
 export namespace InvoicingServiceTypes {
+    
     export interface IBills {
         entityId: string;
         entityType: string;
@@ -19,19 +20,24 @@ export namespace InvoicingServiceTypes {
         status: string;
         total: number;
     }
-
-    export enum FuncCreateInvoices {
-        name = "createStripeInvoices"
+    
+    export enum ActionCreateStripeInvoices {
+        name = "createStripeInvoices",
+        paramMonth = "month",
+        paramYear = "year"
     }
 
-    export type FuncCreateInvoicesReturn = IBills;
+    export interface IActionCreateStripeInvoicesParams {
+        month: string;
+        year: string;
+    }
+
+    export type ActionCreateStripeInvoicesReturn = string;
 
     export enum Entity {
-        Bills = "InvoicingService.Bills"
     }
 
     export enum SanitizedEntity {
-        Bills = "Bills"
     }
 }
 
