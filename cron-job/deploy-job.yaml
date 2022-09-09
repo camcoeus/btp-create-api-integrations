@@ -17,7 +17,7 @@ spec:
             - sh
             - -c
             args:
-            - curl $SERVICE_URL
+            - "curl -X POST $(SERVICE_URL) --header 'Content-Type: application/json' --data-raw '{}'"
             env:
             - name: INVOICING_SERVICE_HOST
               value: btp-invoicing-srv
