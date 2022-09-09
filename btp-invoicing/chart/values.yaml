@@ -9,7 +9,7 @@ srv:
     destinations:
       serviceInstanceName: destinations
   image:
-    repository: <<your_docker_account>>/btp-invoicing
+    repository: <your_docker_account>/btp-invoicing
     tag: latest
   resources:
     limits:
