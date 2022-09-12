@@ -11,7 +11,6 @@ jyBv2q6Qxg2uuoFGPhpdFg== templates/destinations.yaml
 feuHWfwJ/hGUIe6cT84zBw== charts/web-application/values-lint.yaml
 c0zOWfX9aGikc8KZrRQ6jw== charts/web-application/values.schema.json
 hryCWyWlg/SCeDgSp3b0fw== charts/web-application/values.yaml
-ePhnRrKwWabjd3/s/EnSuA== charts/web-application/templates/api-rule.yaml
 06234b9qkzJAXkQHBAZH3g== charts/web-application/templates/deployment.yaml
 RrGTAm+0mKqrqVz2WESi7g== charts/web-application/templates/network-policy.yaml
 fh6KFxHlQ5nReEmsRPgTQw== charts/web-application/templates/pod-disruption-budget.yaml

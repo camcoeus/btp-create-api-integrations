@@ -4,10 +4,12 @@ global:
     #name: null
 srv:
   bindings:
+    auth:
+      serviceInstanceName: xsuaa
     destinations:
       serviceInstanceName: destinations
   image:
-    repository: <<your_docker_account>>/btp-invoicing
+    repository: <your_docker_account>/btp-invoicing
     tag: latest
   resources:
     limits:
@@ -23,6 +25,12 @@ srv:
       path: /
     readiness:
       path: /
+xsuaa:
+  serviceOfferingName: xsuaa
+  servicePlanName: application
+  parameters:
+    xsappname: btp-invoicing
+  config: xs-security.json
 destinations:
   serviceOfferingName: destination
   servicePlanName: lite
